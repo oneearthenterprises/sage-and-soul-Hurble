@@ -1,0 +1,163 @@
+<!-- GoKwik KwikPass FAQs Custom Section -->
+<script>
+(function() {
+  const TAB_SETTINGS = {
+    id: "custom-btn-faqs",
+    navPath: "faqs",
+    title: "FAQs",
+    subtitle: "Answers to common questions",
+    icon: "https://pdp.gokwik.co/kp-account/assets/icons/faq.svg",
+    content: `
+      <div class="kp-custom-faq-container" style="font-family: inherit; padding: 1.5rem 1rem; max-width: 800px; margin: 0 auto; color: #1f2937;">
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.25rem; font-weight: 600; color: #111827; margin: 0 0 0.25rem 0;">Frequently Asked Questions</h3>
+          <p style="font-size: 0.875rem; color: #6b7280; margin: 0;">Find answers to common questions about your orders, delivery, and Sage & Soul rituals.</p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <details style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.85rem 1rem; cursor: pointer;">
+            <summary style="font-weight: 500; font-size: 0.95rem; color: #111827; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+              <span>How do I track my order?</span>
+              <span style="font-size: 1.1rem; color: #9ca3af;">+</span>
+            </summary>
+            <div style="margin-top: 0.65rem; font-size: 0.875rem; line-height: 1.5; color: #4b5563; border-top: 1px solid #f3f4f6; padding-top: 0.65rem;">
+              You can track your order directly from the <strong>My Orders</strong> tab in your account. You will also receive an SMS and WhatsApp update with tracking details once dispatched.
+            </div>
+          </details>
+
+          <details style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.85rem 1rem; cursor: pointer;">
+            <summary style="font-weight: 500; font-size: 0.95rem; color: #111827; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+              <span>How long does delivery take?</span>
+              <span style="font-size: 1.1rem; color: #9ca3af;">+</span>
+            </summary>
+            <div style="margin-top: 0.65rem; font-size: 0.875rem; line-height: 1.5; color: #4b5563; border-top: 1px solid #f3f4f6; padding-top: 0.65rem;">
+              Orders are dispatched within 24–48 business hours. Delivery usually takes <strong>3 to 5 business days</strong> across India.
+            </div>
+          </details>
+
+          <details style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.85rem 1rem; cursor: pointer;">
+            <summary style="font-weight: 500; font-size: 0.95rem; color: #111827; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+              <span>What are the ingredients in Sage & Soul infusions?</span>
+              <span style="font-size: 1.1rem; color: #9ca3af;">+</span>
+            </summary>
+            <div style="margin-top: 0.65rem; font-size: 0.875rem; line-height: 1.5; color: #4b5563; border-top: 1px solid #f3f4f6; padding-top: 0.65rem;">
+              All Sage & Soul blends are 100% natural and made with authentic dried whole botanicals, flower petals, and ayurvedic herbs with no artificial additives.
+            </div>
+          </details>
+
+          <details style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.85rem 1rem; cursor: pointer;">
+            <summary style="font-weight: 500; font-size: 0.95rem; color: #111827; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+              <span>How do I brew Sage & Soul herbal infusions?</span>
+              <span style="font-size: 1.1rem; color: #9ca3af;">+</span>
+            </summary>
+            <div style="margin-top: 0.65rem; font-size: 0.875rem; line-height: 1.5; color: #4b5563; border-top: 1px solid #f3f4f6; padding-top: 0.65rem;">
+              Steep 1 pyramid tea bag in 150ml–200ml freshly boiled water for 3 to 5 minutes. You can enjoy it hot or iced!
+            </div>
+          </details>
+
+          <details style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.85rem 1rem; cursor: pointer;">
+            <summary style="font-weight: 500; font-size: 0.95rem; color: #111827; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+              <span>What is your return & replacement policy?</span>
+              <span style="font-size: 1.1rem; color: #9ca3af;">+</span>
+            </summary>
+            <div style="margin-top: 0.65rem; font-size: 0.875rem; line-height: 1.5; color: #4b5563; border-top: 1px solid #f3f4f6; padding-top: 0.65rem;">
+              For damaged or wrong products received, contact support at <strong>support@mysagensoul.com</strong> within 48 hours for an instant replacement.
+            </div>
+          </details>
+        </div>
+      </div>
+    `
+  };
+
+  function sendContent() {
+    // Send for both 'faqs' and 'faq' to cover any KwikPass identifier variation
+    const ids = ['faqs', 'faq', TAB_SETTINGS.id];
+    ids.forEach(function(targetId) {
+      window.dispatchEvent(new CustomEvent('kp-account:custom-nav', {
+        detail: { id: targetId, content: TAB_SETTINGS.content }
+      }));
+      document.dispatchEvent(new CustomEvent('kp-account:custom-nav', {
+        detail: { id: targetId, content: TAB_SETTINGS.content }
+      }));
+    });
+  }
+
+  function setupFaqs() {
+    const host = document.querySelector('main') || document.querySelector('kp-account') || document.querySelector('#kp-container');
+    const shadow = host?.shadowRoot;
+    const target = shadow?.querySelector?.('#kp-sidebar-wrapper');
+
+    // 1. Look for existing button with data-nav-path
+    let existingBtn = shadow?.querySelector(`[data-nav-path="${TAB_SETTINGS.navPath}"]`) ||
+                      shadow?.querySelector(`[data-nav-path="faq"]`) ||
+                      shadow?.querySelector(`#${TAB_SETTINGS.id}`);
+
+    // 2. If no button exists in sidebar, insert it
+    if (!existingBtn && target) {
+      target.insertAdjacentHTML('beforeend', `
+        <button id="${TAB_SETTINGS.id}" data-nav-path="${TAB_SETTINGS.navPath}"
+                class="border-b py-4 lg:px-4 border-neutral-100 w-full flex items-center justify-between hover:bg-neutral-50 transition-colors">
+          <div class="flex items-center gap-3">
+            <div class="flex-shrink-0"><img alt="Icon" class="w-6 h-6" src="${TAB_SETTINGS.icon}"></div>
+            <div class="text-left">
+              <div class="text-base mb-2 text-kp-default leading-tight font-normal">${TAB_SETTINGS.title}</div>
+              <div class="text-xs text-kp-subdued">${TAB_SETTINGS.subtitle}</div>
+            </div>
+          </div>
+          <img alt="Chevron" class="w-6 h-6" src="https://pdp.gokwik.co/kp-account/assets/icons/chevron-right.svg">
+        </button>
+      `);
+      existingBtn = shadow?.querySelector(`#${TAB_SETTINGS.id}`);
+    }
+
+    // 3. Attach click handlers to any FAQ button
+    if (existingBtn && !existingBtn.dataset.faqAttached) {
+      existingBtn.dataset.faqAttached = "true";
+      existingBtn.addEventListener('click', function() {
+        sendContent();
+      });
+    }
+
+    // Also delegate click inside shadow DOM in case KwikPass re-renders
+    if (shadow && !shadow.dataset.faqDelegateAttached) {
+      shadow.dataset.faqDelegateAttached = "true";
+      shadow.addEventListener('click', function(e) {
+        const clickedBtn = e.target.closest('[data-nav-path="faqs"], [data-nav-path="faq"], #custom-btn-faqs');
+        if (clickedBtn) {
+          sendContent();
+        }
+      });
+    }
+
+    // If currently on FAQs view (URL contains 'faq'), send content immediately
+    if (window.location.href.includes('faq')) {
+      sendContent();
+    }
+  }
+
+  // Hook into all lifecycle events
+  window.addEventListener('SIDEBAR_LOADED', setupFaqs);
+  window.addEventListener('DOMContentLoaded', setupFaqs);
+  window.addEventListener('load', setupFaqs);
+
+  // Poll for 5 seconds to catch delayed Shadow DOM rendering
+  let attempts = 0;
+  const timer = setInterval(function() {
+    attempts++;
+    setupFaqs();
+    if (attempts >= 10) clearInterval(timer);
+  }, 500);
+
+  // Re-send if user navigates back to faqs
+  window.addEventListener('hashchange', function() {
+    if (window.location.href.includes('faq')) {
+      sendContent();
+    }
+  });
+  window.addEventListener('popstate', function() {
+    if (window.location.href.includes('faq')) {
+      sendContent();
+    }
+  });
+})();
+</script>
