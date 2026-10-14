@@ -1,0 +1,161 @@
+<!-- KwikPass Premium Design Enhancements -->
+<script>
+(function() {
+  function applyKwikPassDesign() {
+    const host = document.querySelector('main') || document.querySelector('kp-account') || document.querySelector('#kp-container');
+    if (!host || !host.shadowRoot) return false;
+
+    const shadow = host.shadowRoot;
+
+    // 1. Inject Styles into Shadow DOM
+    let styleTag = shadow.querySelector('#kp-custom-theme-styles');
+    if (!styleTag) {
+      styleTag = document.createElement('style');
+      styleTag.id = 'kp-custom-theme-styles';
+      shadow.appendChild(styleTag);
+    }
+
+    styleTag.textContent = `
+      /* ========================================================
+         1. SIDEBAR & USER PROFILE: STRICTLY WHITE & CLEAN
+         ======================================================== */
+      #kp-sidebar-wrapper,
+      #kp-sidebar-wrapper > div,
+      #kp-sidebar-wrapper div[class*="border"],
+      #kp-sidebar-wrapper div[class*="rounded"],
+      div:has(> [class*="avatar"]),
+      div:has(> div > [class*="avatar"]) {
+        background-color: #ffffff !important;
+        background: #ffffff !important;
+      }
+
+      /* User Profile Box (Hey, Gaurav) */
+      #kp-sidebar-wrapper h3,
+      #kp-sidebar-wrapper [class*="font-semibold"],
+      #kp-sidebar-wrapper [class*="font-bold"] {
+        color: #111827 !important;
+      }
+
+      #kp-sidebar-wrapper [class*="text-xs"],
+      #kp-sidebar-wrapper [class*="text-sm"] {
+        color: #4b5563 !important;
+      }
+
+      /* Total Orders Box */
+      #kp-sidebar-wrapper button:has([class*="order"]),
+      #kp-sidebar-wrapper div:has-text("Total Orders"),
+      #kp-sidebar-wrapper [class*="border"]:has-text("Total Orders") {
+        background-color: #ffffff !important;
+        background: #ffffff !important;
+        border: 1px solid #e5e7eb !important;
+        color: #111827 !important;
+      }
+
+      /* Sidebar Navigation Links */
+      #kp-sidebar-wrapper button {
+        background-color: #ffffff !important;
+      }
+      #kp-sidebar-wrapper button:hover {
+        background-color: #f9fafb !important;
+      }
+      #kp-sidebar-wrapper button[class*="bg-neutral-50"] {
+        background-color: #f3f4f6 !important;
+      }
+
+      /* ========================================================
+         2. RIGHT PANEL: PRODUCT RECOMMENDATION CARDS
+         ======================================================== */
+      /* Only target elements OUTSIDE the sidebar */
+      :not(#kp-sidebar-wrapper) > div:has(> img):has([class*="text"]),
+      div[class*="grid"] > div:has(img),
+      div[class*="recommendation"] div:has(img) {
+        border-radius: 12px !important;
+        border: 1px solid #e5e7eb !important;
+        background: #ffffff !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+        transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+        overflow: hidden !important;
+      }
+
+      :not(#kp-sidebar-wrapper) > div:has(> img):has([class*="text"]):hover,
+      div[class*="grid"] > div:has(img):hover {
+        transform: translateY(-3px) !important;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08) !important;
+      }
+
+      /* ========================================================
+         3. "VIEW MORE DETAILS" BUTTON ONLY
+         ======================================================== */
+      .kp-view-more-details-btn {
+        background-color: #1b4332 !important;
+        color: #ffffff !important;
+        font-weight: 600 !important;
+        font-size: 0.88rem !important;
+        border-radius: 8px !important;
+        border: none !important;
+        padding: 10px 18px !important;
+        cursor: pointer !important;
+        text-align: center !important;
+        display: block !important;
+        width: 100% !important;
+        box-shadow: 0 3px 10px rgba(27, 67, 50, 0.2) !important;
+        transition: background-color 0.2s ease !important;
+        text-decoration: none !important;
+      }
+
+      .kp-view-more-details-btn:hover {
+        background-color: #245a43 !important;
+      }
+    `;
+
+    // 2. Safely style ONLY the "View More Details" button (Ignore Sidebar completely)
+    styleOnlyRecommendationButton(shadow);
+    return true;
+  }
+
+  function styleOnlyRecommendationButton(shadow) {
+    // 1. First, strictly ensure the sidebar profile card is reset to WHITE
+    const sidebar = shadow.querySelector('#kp-sidebar-wrapper');
+    if (sidebar) {
+      const sidebarCards = sidebar.querySelectorAll('div, button');
+      sidebarCards.forEach(function(el) {
+        // Remove any wrong green background on sidebar items
+        if (el.style.backgroundColor === 'rgb(27, 67, 50)' || el.style.backgroundColor === '#1b4332') {
+          el.style.removeProperty('background-color');
+          el.style.removeProperty('color');
+        }
+      });
+    }
+
+    // 2. Find ONLY the "View More Details" button in the right content panel
+    const allButtons = shadow.querySelectorAll('button, a, div[role="button"]');
+    allButtons.forEach(function(btn) {
+      // NEVER touch anything in the sidebar
+      if (btn.closest('#kp-sidebar-wrapper')) return;
+
+      const txt = (btn.textContent || '').trim().toLowerCase();
+      // Match EXACT phrase "view more details"
+      if (txt === 'view more details' || txt === 'view details') {
+        btn.classList.add('kp-view-more-details-btn');
+        btn.style.setProperty('background-color', '#1b4332', 'important');
+        btn.style.setProperty('color', '#ffffff', 'important');
+        btn.style.setProperty('font-weight', '600', 'important');
+        btn.style.setProperty('border-radius', '8px', 'important');
+        btn.style.setProperty('border', 'none', 'important');
+        btn.style.setProperty('padding', '10px 18px', 'important');
+
+        // Make all child spans/text pure white
+        btn.querySelectorAll('*').forEach(function(child) {
+          child.style.setProperty('color', '#ffffff', 'important');
+        });
+      }
+    });
+  }
+
+  // Lifecycle listeners
+  window.addEventListener('SIDEBAR_LOADED', applyKwikPassDesign);
+  window.addEventListener('DOMContentLoaded', applyKwikPassDesign);
+  window.addEventListener('load', applyKwikPassDesign);
+  setInterval(applyKwikPassDesign, 400);
+})();
+</script>
