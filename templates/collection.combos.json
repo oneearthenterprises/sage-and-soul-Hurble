@@ -1,0 +1,609 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "section": {
+      "type": "section",
+      "blocks": {
+        "text_tqQTNE": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "text": "<h1>{{ closest.collection.title }}</h1>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_twGGkJ": {
+          "type": "text",
+          "name": "Description",
+          "settings": {
+            "text": "{{ closest.collection.description }}",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_tqQTNE",
+        "text_twGGkJ"
+      ],
+      "disabled": true,
+      "name": "Collection heading",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-1",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
+    "hscroll_banner_carousel_p8yy9d": {
+      "type": "hscroll-banner-carousel",
+      "blocks": {
+        "banner_wpd3KU": {
+          "type": "banner",
+          "settings": {
+            "desktop_image": "shopify://shop_images/banner_3_final.webp",
+            "banner_link": ""
+          }
+        },
+        "banner_9mtYU7": {
+          "type": "banner",
+          "settings": {
+            "desktop_image": "shopify://shop_images/banner_4_final.webp",
+            "mobile_image": "shopify://shop_images/Gemini_Generated_Image_e83umie83umie83u-Photoroom.webp",
+            "banner_link": ""
+          }
+        },
+        "banner_JEBjxR": {
+          "type": "banner",
+          "settings": {
+            "desktop_image": "shopify://shop_images/banner_2_final.webp",
+            "banner_link": ""
+          }
+        },
+        "banner_bHM7bP": {
+          "type": "banner",
+          "settings": {
+            "desktop_image": "shopify://shop_images/banner_1_final.webp",
+            "mobile_image": "shopify://shop_images/baner_2.webp",
+            "banner_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "banner_wpd3KU",
+        "banner_9mtYU7",
+        "banner_JEBjxR",
+        "banner_bHM7bP"
+      ],
+      "name": "HORIXANTAL SCROLL",
+      "settings": {}
+    },
+    "counter_custom_8F34xj": {
+      "type": "counter-custom",
+      "name": "Counter Custom",
+      "settings": {
+        "heading": "The Payday Sale ends in:",
+        "button_text": "SHOP NOW!",
+        "button_link": ""
+      }
+    },
+    "marquee221_NpPBzA": {
+      "type": "marquee221",
+      "blocks": {
+        "text_eAw9ie": {
+          "type": "text",
+          "settings": {
+            "icon": "|",
+            "text": "MEGA WEEKEND SALE • UNBEATABLE PRICES • LIMITED STOCK • GRAB YOUR DEAL"
+          }
+        },
+        "text_eGfbTV": {
+          "type": "text",
+          "settings": {
+            "icon": "|",
+            "text": "WEEKEND SPECIAL SALE • EXTRA DISCOUNTS • HOT DEALS TODAY • BUY MORE SAVE MORE"
+          }
+        },
+        "text_6UiQ3b": {
+          "type": "text",
+          "settings": {
+            "icon": "|",
+            "text": "FLASH WEEKEND DEALS • HUGE SAVINGS • BESTSELLERS ON SALE • ENDS SOON"
+          }
+        }
+      },
+      "block_order": [
+        "text_eAw9ie",
+        "text_eGfbTV",
+        "text_6UiQ3b"
+      ],
+      "name": "Custom Marquee",
+      "settings": {
+        "speed": 50,
+        "bg_color": "#a4b660",
+        "text_color": "#ffffff"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "blocks": {
+        "filters": {
+          "type": "filters",
+          "static": true,
+          "settings": {
+            "enable_filtering": true,
+            "filter_style": "horizontal",
+            "filter_width": "centered",
+            "text_label_case": "default",
+            "show_swatch_label": false,
+            "show_filter_label": false,
+            "enable_sorting": true,
+            "enable_grid_density": true,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "padding-block-start": 8,
+            "padding-block-end": 8,
+            "padding-inline-start": 8,
+            "padding-inline-end": 8,
+            "facets_margin_bottom": 8,
+            "facets_margin_right": 20
+          },
+          "blocks": {}
+        },
+        "product-card": {
+          "type": "_product-card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 5,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "solid",
+            "border_width": 1,
+            "border_opacity": 49,
+            "border_radius": 11,
+            "padding-block-start": 8,
+            "padding-block-end": 8,
+            "padding-inline-start": 8,
+            "padding-inline-end": 8
+          },
+          "blocks": {
+            "card-gallery": {
+              "type": "_product-card-gallery",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 10,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_4nY4eT": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "font_weight": "600",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-subheading--family)",
+                "font_size": "1rem",
+                "line_height": "loose",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground-heading)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "judge_me_reviews_preview_badge_rmhqt4": {
+              "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+              "settings": {}
+            },
+            "price_EzJzMm": {
+              "type": "price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "custom",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "buy_buttons_mMcKT3": {
+              "type": "buy-buttons",
+              "name": "t:names.product_buy_buttons",
+              "settings": {
+                "stacking": true,
+                "show_pickup_availability": true,
+                "gift_card_form": true,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "quantity": {
+                  "type": "quantity",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                },
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            }
+          },
+          "block_order": [
+            "card-gallery",
+            "product_title_4nY4eT",
+            "judge_me_reviews_preview_badge_rmhqt4",
+            "price_EzJzMm",
+            "buy_buttons_mMcKT3"
+          ]
+        }
+      },
+      "settings": {
+        "layout_type": "grid",
+        "product_card_size": "medium",
+        "mobile_product_card_size": "small",
+        "enable_infinite_scroll": true,
+        "products_per_page": 24,
+        "product_grid_width": "centered",
+        "full_width_on_mobile": true,
+        "columns_gap_horizontal": 10,
+        "columns_gap_vertical": 10,
+        "padding-inline-start": 10,
+        "padding-inline-end": 2,
+        "color_scheme": "scheme-58084d4c-a86e-4d0a-855e-a0966e5043f7",
+        "padding-block-start": 15,
+        "padding-block-end": 32
+      }
+    },
+    "marquee221_Qh93KX": {
+      "type": "marquee221",
+      "blocks": {
+        "text_cMdBLQ": {
+          "type": "text",
+          "settings": {
+            "icon": "🔥",
+            "text": "Brew Your Calm • Embrace Your Balance"
+          }
+        },
+        "text_G8XA7G": {
+          "type": "text",
+          "settings": {
+            "icon": "🔥",
+            "text": "Taste Wellness • Feel the Difference"
+          }
+        },
+        "text_cPnq8H": {
+          "type": "text",
+          "settings": {
+            "icon": "🔥",
+            "text": "Free Shipping on Orders Above ₹999"
+          }
+        },
+        "text_yNcgMR": {
+          "type": "text",
+          "settings": {
+            "icon": "🔥",
+            "text": "Pure Herbs • Better Moments"
+          }
+        },
+        "text_xg9aUf": {
+          "type": "text",
+          "settings": {
+            "icon": "🔥",
+            "text": "Brewed for Balance • Made for You"
+          }
+        },
+        "text_rYJYwM": {
+          "type": "text",
+          "settings": {
+            "icon": "🔥",
+            "text": "Nature’s Goodness • Every Day"
+          }
+        },
+        "text_yiHx7Q": {
+          "type": "text",
+          "settings": {
+            "icon": "🔥",
+            "text": "Sip • Soothe • Restore"
+          }
+        }
+      },
+      "block_order": [
+        "text_cMdBLQ",
+        "text_G8XA7G",
+        "text_cPnq8H",
+        "text_yNcgMR",
+        "text_xg9aUf",
+        "text_rYJYwM",
+        "text_yiHx7Q"
+      ],
+      "name": "Custom Marquee",
+      "settings": {
+        "speed": 50,
+        "bg_color": "#7c91e6",
+        "text_color": "#ffffff"
+      }
+    },
+    "shoppable_video_carousel_enMXYL": {
+      "type": "shoppable-video-carousel",
+      "blocks": {
+        "slide_repYb8": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/Happy Heart.mp4",
+            "title": "Best Picks",
+            "product_1": "happy-heart-gluco-balance-daily-wellness-combo",
+            "product_2": "",
+            "product_3": ""
+          }
+        },
+        "slide_QGdjfT": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/Happy Heart.mp4",
+            "title": "Best Picks",
+            "product_1": "happy-heart-gluco-balance-daily-wellness-combo",
+            "product_2": "",
+            "product_3": ""
+          }
+        },
+        "slide_LYmEnV": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/Happy Liver & Body Detox.mp4",
+            "title": "Best Picks",
+            "product_1": "skin-glow-happy-liver-glow-renew-combo",
+            "product_2": "",
+            "product_3": ""
+          }
+        },
+        "slide_VPPfwR": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/download (6) (2).mp4",
+            "title": "Best Picks",
+            "product_1": "moringa-jasmine-uplift-wellness-combo",
+            "product_2": "",
+            "product_3": ""
+          }
+        },
+        "slide_94JFeM": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/Happy Heart.mp4",
+            "title": "Best Picks",
+            "product_1": "happy-heart-gluco-balance-daily-wellness-combo",
+            "product_2": "",
+            "product_3": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_repYb8",
+        "slide_QGdjfT",
+        "slide_LYmEnV",
+        "slide_VPPfwR",
+        "slide_94JFeM"
+      ],
+      "name": "Shoppable Video Carousel",
+      "settings": {
+        "heading": "Watch It. Love It",
+        "bg_color": "#ffffff",
+        "blend_heading": "Soul of the Blend",
+        "enable_floating_widget": false,
+        "floating_label": "Shop Now"
+      }
+    },
+    "about_us_tabs_UfMdNn": {
+      "type": "about-us-tabs",
+      "blocks": {
+        "item_iLFCe3": {
+          "type": "item",
+          "settings": {
+            "title": "Curated Daily Wellness",
+            "text": "Experience the ultimate Daily Wellness with our curated combos. Pair an energizing Moringa superfood tea with our refreshing herbal wellness infusions for complete, day-to-night natural balance."
+          }
+        },
+        "item_69w8UA": {
+          "type": "item",
+          "settings": {
+            "title": "Botanical Beauty Combos",
+            "text": "Glow from within by combining our top-rated tea for glowing skin with antioxidant-rich rose green tea and hibiscus flower tea. The perfect Beauty Botanicals pairing for your daily self-care routine."
+          }
+        },
+        "item_7wHgzB": {
+          "type": "item",
+          "settings": {
+            "title": "Active Lifestyle & Vitality",
+            "text": "Elevate your fitness routine with our dynamic tea pairings. Enjoy our premium herbal infusions designed for plant-based wellness, supporting your active lifestyle, inner vitality, and natural nourishment."
+          }
+        },
+        "item_pmdwmz": {
+          "type": "item",
+          "settings": {
+            "title": "Mindful Women's Care",
+            "text": "Find your inner harmony. Our specially crafted women's wellness tea and calming chamomile tea bags deliver gentle comfort, daily balance, and relaxation in premium pyramid tea bags."
+          }
+        }
+      },
+      "block_order": [
+        "item_iLFCe3",
+        "item_69w8UA",
+        "item_7wHgzB",
+        "item_pmdwmz"
+      ],
+      "name": "About Us Tabs",
+      "settings": {
+        "heading": "Grounded In Nature, Growing With Science"
+      }
+    },
+    "sustainability_testimonials_chynX8": {
+      "type": "sustainability-testimonials",
+      "blocks": {
+        "testimonial_jdtqN4": {
+          "type": "testimonial",
+          "disabled": true,
+          "settings": {
+            "quote": "I was taking multiple supplements because of things I'd read online. The personalised plan helped me focus on what my body actually needed.",
+            "author": "Kabir Bharara"
+          }
+        },
+        "testimonial_yEGqhV": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I used to rely on guesswork when it came to my wellness routine. Now I feel far more confident making decisions about my health.",
+            "author": "Dr. Swati Pandey"
+          }
+        },
+        "testimonial_qYLJFJ": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "What stood out wasn't just the data, it was how personal it felt. It helped me understand myself in a way no health report ever has.",
+            "author": "Abhishree Akolkar"
+          }
+        },
+        "testimonial_mgaPGY": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I've spent years investing in my health. Understanding my biomarkers made those efforts feel much more intentional.",
+            "author": "Yashika"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_jdtqN4",
+        "testimonial_yEGqhV",
+        "testimonial_qYLJFJ",
+        "testimonial_mgaPGY"
+      ],
+      "disabled": true,
+      "name": "Testimonial Card Grid",
+      "settings": {
+        "bg_color": "#fbfcf9",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "title": "Real people, real results.",
+        "description": "Discover how people found their perfect supplement fit with Wellbeing BloodView."
+      }
+    }
+  },
+  "order": [
+    "section",
+    "hscroll_banner_carousel_p8yy9d",
+    "counter_custom_8F34xj",
+    "marquee221_NpPBzA",
+    "main",
+    "marquee221_Qh93KX",
+    "shoppable_video_carousel_enMXYL",
+    "about_us_tabs_UfMdNn",
+    "sustainability_testimonials_chynX8"
+  ]
+}

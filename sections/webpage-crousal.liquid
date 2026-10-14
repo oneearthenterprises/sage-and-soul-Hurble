@@ -1,0 +1,253 @@
+<section class="sage-product-hero-carousel">
+
+  <div class="sageHeroCarousel swiper" id="sageHero-{{ section.id }}">
+
+    <div class="sage-hero-track swiper-wrapper" id="sageHeroTrack-{{ section.id }}">
+
+      {% for block in section.blocks %}
+
+        <div class="sage-hero-slide swiper-slide">
+
+          <a
+            href="{{ block.settings.banner_link }}"
+            class="sage-hero-banner-item"
+          >
+
+      <picture>
+
+  {% if block.settings.mobile_image != blank %}
+    <source
+      media="(max-width: 768px)"
+      srcset="
+        {{ block.settings.mobile_image | image_url: width: 390 }} 390w,
+        {{ block.settings.mobile_image | image_url: width: 412 }} 412w,
+        {{ block.settings.mobile_image | image_url: width: 540 }} 540w,
+        {{ block.settings.mobile_image | image_url: width: 640 }} 640w,
+        {{ block.settings.mobile_image | image_url: width: 768 }} 768w,
+        {{ block.settings.mobile_image | image_url: width: 828 }} 828w,
+        {{ block.settings.mobile_image | image_url: width: 1080 }} 1080w
+      "
+      sizes="100vw"
+    >
+  {% endif %}
+
+  {% if block.settings.desktop_image != blank %}
+    <source
+      media="(min-width: 769px)"
+      srcset="
+        {{ block.settings.desktop_image | image_url: width: 768 }} 768w,
+        {{ block.settings.desktop_image | image_url: width: 1024 }} 1024w,
+        {{ block.settings.desktop_image | image_url: width: 1440 }} 1440w,
+        {{ block.settings.desktop_image | image_url: width: 1600 }} 1600w,
+        {{ block.settings.desktop_image | image_url: width: 2000 }} 2000w
+      "
+      sizes="100vw"
+    >
+  {% endif %}
+
+  {% assign fallback_image = block.settings.mobile_image | default: block.settings.desktop_image %}
+
+  {% if fallback_image != blank %}
+    <img
+      src="{{ fallback_image | image_url: width: 1080 }}"
+      srcset="
+        {{ fallback_image | image_url: width: 390 }} 390w,
+        {{ fallback_image | image_url: width: 540 }} 540w,
+        {{ fallback_image | image_url: width: 640 }} 640w,
+        {{ fallback_image | image_url: width: 768 }} 768w,
+        {{ fallback_image | image_url: width: 828 }} 828w,
+        {{ fallback_image | image_url: width: 1080 }} 1080w
+      "
+      sizes="100vw"
+      alt="Banner"
+      class="sage-responsive-banner"
+      width="{{ fallback_image.width }}"
+      height="{{ fallback_image.height }}"
+      {% if forloop.first %}
+        loading="eager"
+        fetchpriority="high"
+      {% else %}
+        loading="lazy"
+      {% endif %}
+    >
+  {% endif %}
+
+</picture>
+
+          </a>
+
+        </div>
+
+      {% endfor %}
+
+    </div>
+
+    <!-- PAGINATION -->
+    <div class="sage-hero-pagination swiper-pagination" id="sageHeroPagination-{{ section.id }}"></div>
+
+  </div>
+
+</section>
+
+<style>
+
+.sage-product-hero-carousel{
+  width:100%;
+  overflow:hidden;
+}
+
+/* CAROUSEL */
+
+.sageHeroCarousel{
+  width:100%;
+  overflow:hidden;
+  position:relative;
+}
+
+/* TRACK */
+
+.sage-hero-track{
+  display:flex;
+  cursor:grab;
+  user-select:none;
+}
+
+.sageHeroCarousel.is-dragging .sage-hero-track{
+  cursor:grabbing;
+}
+
+/* SLIDE */
+
+.sage-hero-slide{
+  flex:0 0 100%;
+  min-width:100%;
+}
+
+.sage-hero-banner-item{
+  display:block;
+  width:100%;
+  overflow:hidden;
+  min-height:44px;
+}
+
+/* IMAGE */
+
+.sage-hero-banner-item img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:100%;
+  object-fit:contain;
+  image-rendering:auto;
+}
+
+
+
+
+/* PAGINATION */
+
+.sage-hero-pagination{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:14px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  z-index:5;
+}
+
+.sage-hero-pagination .swiper-pagination-bullet,
+.sage-hero-pagination .sage-hero-dot{
+  display: inline-block;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#fff;
+  opacity:.4;
+  cursor:pointer;
+  transition:width .2s, opacity .2s, border-radius .2s;
+  margin: 0 !important;
+  /* Expand touch target to ≥24×24px without changing visual size */
+  padding: 7px;
+  background-clip: content-box;
+  box-sizing: content-box;
+}
+
+.sage-hero-pagination .swiper-pagination-bullet-active,
+.sage-hero-pagination .sage-hero-dot.is-active{
+  width:30px;
+  border-radius:20px;
+  opacity:1;
+}
+
+
+</style>
+
+<script>
+function initSageHeroCarousel() {
+  var containerEl = document.querySelector("#sageHero-{{ section.id }}");
+  if (!containerEl) return;
+  if (containerEl.swiper) {
+    containerEl.swiper.destroy(true, true);
+  }
+
+  new Swiper(containerEl, {
+    direction: 'horizontal',
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false
+    },
+    pagination: {
+      el: "#sageHeroPagination-{{ section.id }}",
+      clickable: true
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", initSageHeroCarousel);
+
+document.addEventListener("shopify:section:load", function (e) {
+  if (e.detail.sectionId === "{{ section.id }}") {
+    initSageHeroCarousel();
+  }
+});
+</script>
+
+
+{% schema %}
+{
+  "name": "sage Hero Carousel",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "banner",
+      "name": "Banner Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "desktop_image",
+          "label": "Desktop Banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile Banner"
+        },
+        {
+          "type": "url",
+          "id": "banner_link",
+          "label": "Banner Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "sage Hero Carousel"
+    }
+  ]
+}
+{% endschema %}

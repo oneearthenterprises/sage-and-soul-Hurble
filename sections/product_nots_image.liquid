@@ -1,0 +1,243 @@
+```liquid
+{% assign notes = product.metafields.custom.productnotes.value %}
+
+{% if notes %}
+<section class="product-notes-section">
+  <div class="page-width">
+    <div class="product-notes-wrapper">
+
+      <div class="note-heading">
+        <span class="note-line"></span>
+        <span class="note-badge">A NOTE ON WELLNESS</span>
+        <span class="note-line"></span>
+      </div>
+
+      <div class="product-notes-content">
+
+        <img
+          class="quote-icon quote-left"
+          src="https://cdn.shopify.com/s/files/1/0674/9972/0775/files/icons8-quotes-50.png?v=1780551547"
+          alt=""
+          loading="lazy"
+        >
+
+        <div class="product-notes-text">
+          {{ notes.description | metafield_tag }}
+        </div>
+
+        <img
+          class="quote-icon quote-right"
+          src="https://cdn.shopify.com/s/files/1/0674/9972/0775/files/icons8-quotes-50.png?v=1780551547"
+          alt=""
+          loading="lazy"
+        >
+
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<style>
+.product-notes-section {
+  padding: 24px 12px;
+  background: #f7f8f3;
+}
+
+.product-notes-wrapper {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 22px 45px 30px;
+  text-align: center;
+  border: 1px solid #d5ddc9;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.note-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.note-line {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: #c7d2bb;
+}
+
+.note-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 17px;
+  min-height: 28px;
+  border-radius: 30px;
+  background: #c7d5b6;
+  color: #405344;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  line-height: 1.3;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.product-notes-content {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 32px;
+  box-sizing: border-box;
+  color: #526653;
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 400;
+  text-align: center;
+}
+
+.product-notes-text p {
+  margin: 0;
+}
+
+.product-notes-text > * + * {
+  margin-top: 8px;
+}
+
+.quote-icon {
+  position: absolute;
+  display: block;
+  width: 36px;
+  height: auto;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.quote-left {
+  top: 0;
+  left: 0;
+  transform: translateY(-5%);
+}
+
+.quote-right {
+  right: 0;
+  bottom: 0;
+  transform: rotate(180deg);
+}
+
+@media (min-width: 768px) {
+  .product-notes-section {
+    padding: 30px 20px;
+  }
+
+  .product-notes-wrapper {
+    padding: 22px 50px 32px;
+  }
+
+  .note-heading {
+    margin-bottom: 12px;
+  }
+
+  .note-line {
+    width: 60px;
+  }
+
+  .product-notes-content {
+    max-width: 700px;
+    padding: 0 35px;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .quote-icon {
+    width: 38px;
+  }
+}
+
+@media (max-width: 767px) {
+  .product-notes-section {
+    padding: 20px 12px;
+  }
+
+  .product-notes-wrapper {
+    padding: 20px 14px 24px;
+    border-radius: 10px;
+  }
+
+  .note-heading {
+    gap: 7px;
+    margin-bottom: 16px;
+  }
+
+  .note-line {
+    width: 28px;
+  }
+
+  .note-badge {
+    padding: 7px 11px;
+    min-height: 25px;
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .product-notes-content {
+    max-width: 100%;
+    padding: 0 22px;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .quote-icon {
+    width: 25px;
+  }
+
+  .quote-left {
+    top: 0;
+    left: -2px;
+  }
+
+  .quote-right {
+    right: -2px;
+    bottom: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .product-notes-wrapper {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .product-notes-content {
+    padding-right: 19px;
+    padding-left: 19px;
+    font-size: 12px;
+  }
+
+  .note-line {
+    width: 20px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Product Notes",
+  "templates": ["product"],
+  "settings": [],
+  "presets": [
+    {
+      "name": "Product Notes"
+    }
+  ]
+}
+{% endschema %}
+```

@@ -1,0 +1,187 @@
+{% doc %}
+  Renders all meta tags for the page including Open Graph, Twitter Cards, and SEO tags.
+
+  @param {object} [product] - The product object, available on product pages for price meta tags.
+{% enddoc %}
+
+<meta charset="utf-8">
+<meta
+  http-equiv="X-UA-Compatible"
+  content="IE=edge"
+>
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1"
+>
+<meta
+  name="view-transition"
+  content="same-origin"
+>
+<meta
+  name="theme-color"
+  content=""
+>
+{%- liquid
+  assign clean_shop_name = shop.name | replace: '&amp;', '&'
+  # Determine page-specific SEO Title
+  assign custom_seo_title = ''
+  if request.page_type == 'index'
+    if page_title != blank and page_title != shop.name
+      assign custom_seo_title = page_title | replace: '&amp;', '&'
+      unless custom_seo_title contains clean_shop_name
+        assign custom_seo_title = custom_seo_title | append: ' | ' | append: clean_shop_name
+      endunless
+    else
+      assign custom_seo_title = clean_shop_name | append: ' | 100% Natural Herbal Teas & Wellness Blends'
+    endif
+  elsif request.page_type == 'collection'
+    if collection.handle == 'all' or collection.title == 'Products' or collection.title == 'All Products'
+      assign custom_seo_title = 'Shop All Herbal Teas & Wellness Blends – ' | append: clean_shop_name
+    elsif collection.title != blank
+      assign custom_seo_title = collection.title | replace: '&amp;', '&' | append: ' – Natural Herbal Teas | ' | append: clean_shop_name
+    else
+      assign custom_seo_title = page_title | replace: '&amp;', '&'
+    endif
+  elsif request.page_type == 'product'
+    if product.title != blank
+      assign custom_seo_title = product.title | replace: '&amp;', '&' | append: ' – 100% Natural Herbal Tea | ' | append: clean_shop_name
+    else
+      assign custom_seo_title = page_title | replace: '&amp;', '&'
+    endif
+  else
+    assign custom_seo_title = page_title | replace: '&amp;', '&'
+    unless custom_seo_title contains clean_shop_name
+      assign custom_seo_title = custom_seo_title | append: ' – ' | append: clean_shop_name
+    endunless
+  endif
+
+  if current_tags
+    assign tags_joined = current_tags | join: ', ' | replace: '&amp;', '&'
+    assign custom_seo_title = custom_seo_title | append: ' – tagged "' | append: tags_joined | append: '"'
+  endif
+  if current_page != 1
+    assign custom_seo_title = custom_seo_title | append: ' – Page ' | append: current_page
+  endif
+
+  assign custom_seo_title = custom_seo_title | replace: '&amp;', '&' | strip
+
+  # Determine page-specific SEO Description with fallback
+  assign fallback_description = 'Discover 100% natural, chemical-free herbal wellness teas, detox infusions, and whole flower blends by ' | append: clean_shop_name | append: '. Crafted for your holistic health and vitality.'
+  assign seo_desc = ''
+  if request.page_type == 'collection'
+    if collection.description != blank
+      assign seo_desc = collection.description | strip_html | strip
+    elsif collection.handle == 'all' or collection.title == 'Products' or collection.title == 'All Products'
+      assign seo_desc = 'Explore our full range of 100% natural, chemical-free herbal teas and wellness infusions by ' | append: clean_shop_name | append: '. Pure botanical ingredients for daily rejuvenation.'
+    elsif collection.title != blank
+      assign seo_desc = 'Shop pure and organic ' | append: collection.title | append: ' at ' | append: clean_shop_name | append: '. 100% natural, chemical-free herbal wellness blends crafted for holistic health.'
+    endif
+  elsif request.page_type == 'product'
+    if product.description != blank
+      assign seo_desc = product.description | strip_html | strip
+    elsif product.title != blank
+      assign seo_desc = 'Buy ' | append: product.title | append: ' from ' | append: clean_shop_name | append: '. 100% natural, chemical-free herbal wellness blend crafted for daily vitality and holistic health.'
+    endif
+  elsif request.page_type == 'article'
+    assign seo_desc = article.excerpt_or_content | default: article.content | strip_html | strip
+  elsif request.page_type == 'page'
+    assign seo_desc = page.content | strip_html | strip
+  endif
+
+  assign seo_description = page_description | default: seo_desc | default: shop.description | default: fallback_description | strip_html | replace: '&amp;', '&' | strip | truncate: 160
+
+  assign og_title = custom_seo_title | default: page_title | default: clean_shop_name
+  assign og_url = canonical_url | default: request.origin
+  assign og_type = 'website'
+  assign og_description = seo_description
+
+  if request.page_type == 'product'
+    assign og_type = 'product'
+  elsif request.page_type == 'article'
+    assign og_type = 'article'
+  elsif request.page_type == 'password'
+    assign og_url = request.origin
+  endif
+-%}
+
+<meta
+  property="og:site_name"
+  content="{{ clean_shop_name | escape }}"
+>
+<meta
+  property="og:url"
+  content="{{ og_url }}"
+>
+<meta
+  property="og:title"
+  content="{{ og_title | escape }}"
+>
+<meta
+  property="og:type"
+  content="{{ og_type }}"
+>
+<meta
+  property="og:description"
+  content="{{ og_description | escape }}"
+>
+
+{%- if page_image -%}
+  <meta
+    property="og:image"
+    content="http:{{ page_image | image_url }}"
+  >
+  <meta
+    property="og:image:secure_url"
+    content="https:{{ page_image | image_url }}"
+  >
+  <meta
+    property="og:image:width"
+    content="{{ page_image.width }}"
+  >
+  <meta
+    property="og:image:height"
+    content="{{ page_image.height }}"
+  >
+{%- endif -%}
+
+{%- if request.page_type == 'product' -%}
+  <meta
+    property="og:price:amount"
+    content="{{ product.price | money_without_currency | strip_html }}"
+  >
+  <meta
+    property="og:price:currency"
+    content="{{ cart.currency.iso_code }}"
+  >
+{%- endif -%}
+
+{%- if settings.social_twitter_link != blank -%}
+  <meta
+    name="twitter:site"
+    content="{{ settings.social_twitter_link | split: 'twitter.com/' | last | prepend: '@' }}"
+  >
+{%- endif -%}
+<meta
+  name="twitter:card"
+  content="summary_large_image"
+>
+<meta
+  name="twitter:title"
+  content="{{ og_title | escape }}"
+>
+<meta
+  name="twitter:description"
+  content="{{ og_description | escape }}"
+>
+
+<title>{{ custom_seo_title }}</title>
+
+<link
+  rel="canonical"
+  href="{{ canonical_url }}"
+>
+
+<meta
+  name="description"
+  content="{{ seo_description | escape }}"
+>

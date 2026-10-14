@@ -1,0 +1,169 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "page-content"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "sustainability_community_pXnAeN": {
+      "type": "sustainability-community",
+      "name": "Community Effort Banner",
+      "settings": {
+        "bg_color": "#ffffff",
+        "image_position": "right",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "heading": "Herbal Wellness for Every Day",
+        "description": "Bring natural herbal wellness infusions into your daily routine with thoughtfully selected botanicals crafted for mindful everyday living.",
+        "btn_text": " Learn More",
+        "btn_link": "",
+        "image": "shopify://shop_images/Does_Detox_Infusion_Actually_Work_or_Is_It_Just_Hype_d90bd0fa-c6ef-4797-a25f-a80de6d687bb.png"
+      }
+    },
+    "about_us_tabs_jBNCwT": {
+      "type": "about-us-tabs",
+      "blocks": {
+        "item_ATkPwV": {
+          "type": "item",
+          "settings": {
+            "title": "Herbal Wellness Infusions",
+            "text": "Our herbal wellness infusions are thoughtfully crafted with natural botanicals for a simple and mindful daily wellness ritual."
+          }
+        },
+        "item_jHBjyB": {
+          "type": "item",
+          "settings": {
+            "title": "Natural Botanicals",
+            "text": "From moringa and hibiscus to chamomile and butterfly pea, we carefully select natural ingredients for our herbal infusion blends."
+          }
+        },
+        "item_3gyEaV": {
+          "type": "item",
+          "settings": {
+            "title": "Mindful Herbal Blends",
+            "text": "Our premium herbal infusion blends combine carefully selected botanicals with delicious flavours for an enjoyable everyday wellness experience"
+          }
+        },
+        "item_TJEBHb": {
+          "type": "item",
+          "settings": {
+            "title": "Everyday Wellness",
+            "text": "Bring natural wellness into your routine with thoughtfully crafted herbal infusions designed to complement your daily lifestyle."
+          }
+        }
+      },
+      "block_order": [
+        "item_ATkPwV",
+        "item_jHBjyB",
+        "item_3gyEaV",
+        "item_TJEBHb"
+      ],
+      "name": "About Us Tabs",
+      "settings": {
+        "heading": "Rooted In Nature, Crafted For Everyday Wellness"
+      }
+    },
+    "health_benefits_list": {
+      "type": "health-benefits-list",
+      "blocks": {
+        "benefit_heart": {
+          "type": "benefit",
+          "settings": {
+            "title": "Heart Wellness",
+            "content": "<p>Thoughtfully crafted <strong>herbal wellness infusions</strong> with natural botanicals can be a mindful addition to a balanced lifestyle and everyday wellness routine.</p>"
+          }
+        },
+        "benefit_weight": {
+          "type": "benefit",
+          "settings": {
+            "title": "Healthy Weight Support",
+            "content": "<p>Our carefully selected <strong>herbal infusion blends</strong> complement an active, balanced lifestyle and make natural wellness an enjoyable part of your daily routine.</p>"
+          }
+        },
+        "benefit_exercise": {
+          "type": "benefit",
+          "settings": {
+            "title": "Energy & Vitality",
+            "content": "<p>Natural botanicals and thoughtfully crafted <strong>herbal infusions</strong> can add a refreshing moment to your daily routine while supporting a mindful approach to everyday wellness.</p>"
+          }
+        },
+        "benefit_radicals": {
+          "type": "benefit",
+          "settings": {
+            "title": "Antioxidant-Rich Botanicals",
+            "content": "<p>Many natural botanicals contain antioxidant compounds, making our <strong>premium herbal infusion blends</strong> a delicious and mindful addition to your everyday wellness ritual.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_heart",
+        "benefit_weight",
+        "benefit_exercise",
+        "benefit_radicals"
+      ],
+      "settings": {
+        "intro": "",
+        "accent_color": "#00a4a6",
+        "bg_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sustainability_community_pXnAeN",
+    "about_us_tabs_jBNCwT",
+    "health_benefits_list"
+  ]
+}

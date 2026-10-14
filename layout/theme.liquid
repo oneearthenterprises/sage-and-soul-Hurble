@@ -1,0 +1,344 @@
+<!doctype html>
+<html
+  {% if request.design_mode %}
+    class="shopify-design-mode"
+  {% endif %}
+  lang="{{ request.locale.iso_code }}"
+>
+  <head>
+  <meta name="facebook-domain-verification" content="1tb9jzbl84rcbe0t2fi1x6boz7m3qn" />
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    
+    {%- if settings.favicon != blank -%}
+      <link
+        rel="icon"
+        type="image/png"
+        href="{{ settings.favicon | image_url: width: 32, height: 32 }}"
+      >
+    {%- endif -%}
+
+    {% # theme-check-disable RemoteAsset %}
+    {% comment %} This a way to wait for main content to load when navigating to a new page so that the view transitions can work consistently {% endcomment %}
+    {% if settings.transition_to_main_product or settings.page_transition_enabled %}
+      <link
+        rel="expect"
+        href="#MainContent"
+        blocking="render"
+        id="view-transition-render-blocker"
+      >
+    {% endif %}
+
+    {%- render 'meta-tags' -%}
+    {%- render 'stylesheets' -%}
+    {%- render 'fonts' -%}
+    {%- render 'scripts' -%}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    {%- render 'theme-styles-variables' -%}
+    {%- render 'color-schemes' -%}
+
+    {% if request.design_mode %}
+      {%- render 'theme-editor' -%}
+    {% endif %}
+
+    {%- if tinyscript -%}{{ content_for_header }}{%- else -%}{% render 'tiny-script-control' %}{%- endif -%}
+
+
+
+{% comment %} karan sir id {% endcomment %}
+<meta name="google-site-verification" content="xg-2hexmeLml8ceVIQFA3-E6a5nCOz9SNCmyN_yIBnc" />
+ 
+{% comment %} Deferred loading of heavy third-party marketing & tracking scripts to maximize PageSpeed score (LCP/TBT) {% endcomment %}
+<script type="text/javascript">
+(function() {
+  var scriptsLoaded = false;
+  
+  function loadTrackingScripts() {
+    if (scriptsLoaded) return;
+    scriptsLoaded = true;
+    
+    // Remove listeners
+    window.removeEventListener('scroll', loadTrackingScripts);
+    window.removeEventListener('mousemove', loadTrackingScripts);
+    window.removeEventListener('touchstart', loadTrackingScripts);
+    window.removeEventListener('keydown', loadTrackingScripts);
+    
+
+
+
+
+    // 3. Google tag (gtag.js)
+    var gtagScript = document.createElement('script');
+    gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=AW-17948940606";
+    document.head.appendChild(gtagScript);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'AW-17948940606');
+  }
+
+  // Bind interaction event listeners
+  window.addEventListener('scroll', loadTrackingScripts, { passive: true });
+  window.addEventListener('mousemove', loadTrackingScripts, { passive: true });
+  window.addEventListener('touchstart', loadTrackingScripts, { passive: true });
+  window.addEventListener('keydown', loadTrackingScripts, { passive: true });
+
+  // Safety fallback: load after 5.5 seconds if no interaction happens
+  setTimeout(loadTrackingScripts, 5500);
+})();
+</script>
+
+
+
+ 
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Sage & Soul",
+    "alternateName": "Sage & Soul",
+    "url": "https://www.mysagensoul.com/",
+    "logo": "https://www.mysagensoul.com/cdn/shop/files/Group_1.png?v=1781521857",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+9170009984070",
+      "contactType": "customer service",
+      "areaServed": "IN",
+      "availableLanguage": [
+        "English",
+        "Hindi",
+        "Punjabi"
+      ]
+    },
+    "sameAs": [
+      "https://www.facebook.com/mysagensoul/",
+      "https://www.instagram.com/mysagensoul/"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Best Sellers - Sage & Soul",
+    "description": "Discover our collection of best-selling organic herbal wellness teas, hand-blended for natural relaxation, health, and vitality.",
+    "url": "https://www.mysagensoul.com/collections/best-sellers",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Sage & Soul",
+      "url": "https://www.mysagensoul.com/",
+      "logo": "https://www.mysagensoul.com/cdn/shop/files/Group_1.png?v=1781521857"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Us - Sage & Soul",
+    "description": "Get in touch with Sage & Soul customer support. Contact us for inquiries, feedback, or assistance with our herbal teas.",
+    "url": "https://www.mysagensoul.com/pages/contact",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Sage & Soul",
+      "url": "https://www.mysagensoul.com/",
+      "logo": "https://www.mysagensoul.com/cdn/shop/files/Group_1.png?v=1781521857"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Collections - Sage & Soul",
+    "url": "https://www.mysagensoul.com/collections/all",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Sage & Soul",
+      "url": "https://www.mysagensoul.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.mysagensoul.com/cdn/shop/files/Group_1.png?v=1781521857"
+      },
+      "sameAs": [
+        "https://www.facebook.com/mysagensoul/",
+        "https://www.instagram.com/mysagensoul/"
+      ]
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "BreadcrumbList", 
+  "itemListElement": [{
+    "@type": "ListItem", 
+    "position": 1, 
+    "name": "Wellness",
+    "item": "https://www.mysagensoul.com/collections/herbal-wellness-infusion-blends-sage-soul-india"  
+  },{
+    "@type": "ListItem", 
+    "position": 2, 
+    "name": "New Arrivals",
+    "item": "https://www.mysagensoul.com/collections/new-arrivals"  
+  },{
+    "@type": "ListItem", 
+    "position": 3, 
+    "name": "Shop All",
+    "item": "https://www.mysagensoul.com/collections/all"  
+  },{
+    "@type": "ListItem", 
+    "position": 4, 
+    "name": "Blogs",
+    "item": "https://www.mysagensoul.com/blogs/sage-herbal-tea"  
+  },{
+    "@type": "ListItem", 
+    "position": 5, 
+    "name": "About Us",
+    "item": "https://www.mysagensoul.com/pages/our-story"  
+  }]
+}
+</script>
+
+
+<!-- Gokwik theme code start -->
+<link rel="dns-prefetch" href="https://pdp.gokwik.co/">
+<link rel="dns-prefetch" href="https://api.gokwik.co">
+{% render 'gokwik' %}
+<!-- Gokwik theme code End -->
+</head>
+
+  <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
+    {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
+    <div id="header-group">
+      {% sections 'header-group' %}
+    </div>
+{% comment %} {% render 'kwikpass-add-button' %} {% endcomment %}
+<script>
+if (window.location.search.includes('variant=')) {
+  window.history.replaceState({}, '', window.location.pathname);
+}
+</script>
+
+
+    <script>
+      // Inline header height and menu style calculations to prevent layout shift
+      // Note: Updates in calculateHeaderGroupHeight(), updateTransparentHeaderOffset() and setHeaderMenuStyle() utilities.js should be kept in sync with this function
+      (function setHeaderHeighCustomProperties() {
+        /*
+         * Header calculation functions for maintaining CSS variables
+         * Mimic calculateHeaderGroupHeight() in utilities.js
+         */
+        const header = document.querySelector('header-component');
+        const headerGroup = document.querySelector('#header-group');
+        const hasHeaderSection = headerGroup?.querySelector('.header-section');
+
+        if (!header || !headerGroup) return;
+
+        const headerTopRow = header.querySelector('.header__row--top');
+        const headerHeight = header.offsetHeight;
+
+        // Calculate the total height of the header group
+        let headerGroupHeight = 0;
+        const children = headerGroup.children;
+        for (let i = 0; i < children.length; i++) {
+          const element = children[i];
+          if (element === header || !(element instanceof HTMLElement)) continue;
+          headerGroupHeight += element.offsetHeight;
+        }
+
+        // Check for transparent header special case
+        if (header.hasAttribute('transparent') && header.parentElement?.nextElementSibling) {
+          headerGroupHeight += headerHeight;
+        }
+
+        // Set CSS variables
+        document.body.style.setProperty('--header-height', `${headerHeight}px`);
+        document.body.style.setProperty('--header-group-height', `${headerGroupHeight}px`);
+
+        if (headerTopRow) {
+          window.requestAnimationFrame(function () {
+            document.body.style.setProperty('--top-row-height', `${headerTopRow.offsetHeight}px`);
+          });
+        }
+
+        /**
+         * Updates CSS custom properties for transparent header offset calculation
+         * Mimic updateTransparentHeaderOffset() in utilities.js
+         */
+
+        if (!hasHeaderSection || !header?.hasAttribute('transparent')) {
+          document.body.style.setProperty('--transparent-header-offset-boolean', '0');
+          return;
+        }
+
+        const hasImmediateSection = hasHeaderSection.nextElementSibling?.classList.contains('shopify-section');
+
+        const shouldApplyOffset = !hasImmediateSection ? '1' : '0';
+        document.body.style.setProperty('--transparent-header-offset-boolean', shouldApplyOffset);
+      })();
+
+      (function setHeaderMenuStyle() {
+        const headerComponent = document.querySelector('#header-component');
+        if (headerComponent) {
+          const isTouchDevice = 'ontouchstart' in window && navigator.maxTouchPoints > 0;
+          const overflowList = headerComponent?.querySelector('overflow-list');
+          const hasReachedMinimum = overflowList && overflowList.hasAttribute('minimum-reached');
+          headerComponent.dataset.menuStyle = isTouchDevice || hasReachedMinimum ? 'drawer' : 'menu';
+        }
+      })();
+    </script>
+
+    <main
+      id="MainContent"
+      class="content-for-layout"
+      role="main"
+      data-page-transition-enabled="{{ settings.page_transition_enabled }}"
+      data-product-transition="{{ settings.transition_to_main_product }}"
+      data-template="{{ template }}"
+    >
+      {{ content_for_layout }}
+    </main>
+
+    <footer>
+      {% sections 'footer-group' %}
+    </footer>
+
+    {% render 'search-modal' %}
+
+    {% section 'mobile-sticky-footer-nav' %}
+
+    {% if settings.quick_add or settings.mobile_quick_add %}
+      {% render 'quick-add-modal' %}
+    {% endif %}
+  {% comment %} <script src="{{ 'tiny-img-link-preloader.js' | asset_url }}" defer></script> {% endcomment %}
+ {% comment %} {% render 'kwikpass' %} {% endcomment %}
+  <style>
+      header-actions a{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+      }
+      path#svgkp-path {
+        stroke-width: 0.3;
+      }
+      #svgkp{
+        color:#000 !important;
+      }
+      path#kpthndr {
+        stroke: none;
+      }
+      @media screen and (max-width: 767px) {
+       search-button{
+         margin-right: 30px;
+      }
+}
+     </style>
+</body>
+</html>

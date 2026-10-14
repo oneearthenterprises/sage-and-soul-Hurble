@@ -1,0 +1,88 @@
+{%- doc -%}
+  Renders the predictive search products list in a clean, vertical luxury row layout
+  matching the reference design with thumbnails, titles, benefit tags, and prices.
+
+  @param {string} title - title of the result list
+  @param {object[]} products - array of products
+  @param {string[]} [order_ids] - array of product ids
+  @param {number} [limit] - limit of products to display
+  @param {string} [products_test_id] - test id
+{%- enddoc -%}
+
+{%- liquid
+  assign recently_viewed_title_text = 'content.recently_viewed_products' | t
+  assign limit = limit | default: 5
+-%}
+
+<div
+  id="predictive-search-products"
+  class="predictive-search-results__products"
+  {% if products_test_id %}
+    data-testid="{{ products_test_id }}"
+  {% endif %}
+>
+  {% if title == recently_viewed_title_text %}
+    <div
+      class="recently-viewed-wrapper"
+      ref="recentlyViewedWrapper"
+    >
+      <div
+        class="search-column-heading"
+        ref="recentlyViewedTitle[]"
+      >
+        <span class="search-column-heading__icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </span>
+        <span>{{ title }}</span>
+        <button
+          class="predictive-search-results__clear button button-unstyled"
+          type="button"
+          on:click="/clearRecentlyViewedProducts"
+          style="margin-left: auto; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer;"
+        >
+          {{ 'actions.clear' | t }}
+        </button>
+      </div>
+
+      <ul class="search-products-list predictive-search-results__wrapper-products list-unstyled">
+        {% if order_ids != blank %}
+          {% for _id in order_ids %}
+            {% assign int_id = _id | times: 1 %}
+            {% assign product = products | find: 'id', int_id %}
+            {% if product %}
+              <li
+                class="predictive-search-results__card predictive-search-results__card--product"
+                ref="recentlyViewedItems[]"
+              >
+                {% render 'search-product-row', product: product %}
+              </li>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          {% for product in products limit: limit %}
+            <li
+              class="predictive-search-results__card predictive-search-results__card--product"
+              ref="recentlyViewedItems[]"
+            >
+              {% render 'search-product-row', product: product %}
+            </li>
+          {% endfor %}
+        {% endif %}
+      </ul>
+    </div>
+  {% else %}
+    <ul class="search-products-list predictive-search-results__wrapper-products list-unstyled">
+      {% for product in products limit: limit %}
+        <li
+          class="predictive-search-results__card predictive-search-results__card--product"
+          ref="resultsItems[]"
+        >
+          {% render 'search-product-row', product: product %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>

@@ -1,0 +1,304 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "page-content"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "webpage_crousal_iCdbAm": {
+      "type": "webpage-crousal",
+      "blocks": {
+        "banner_nVfYe9": {
+          "type": "banner",
+          "settings": {
+            "desktop_image": "shopify://shop_images/vecteezy_assorted-herbal-tea-ingredients-in-glass-bowls_43533816-scaled_1.png",
+            "mobile_image": "shopify://shop_images/vecteezy_assorted-herbal-tea-ingredients-in-glass-bowls_43533816-scaled.jpg",
+            "banner_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "banner_nVfYe9"
+      ],
+      "name": "sage Hero Carousel",
+      "settings": {}
+    },
+    "varieties": {
+      "type": "tea-varieties",
+      "blocks": {
+        "black": {
+          "type": "variety",
+          "settings": {
+            "title": "Black Tea",
+            "image": "shopify://shop_images/vecteezy_assorted-herbal-tea-ingredients-in-glass-bowls_43533816-scaled.jpg",
+            "description": "Black Tea is the most common type of tea accounting for up to 85% of total tea consumption in the western world. Black tea is fully oxidized and has a darker appearance, stronger flavour, and higher caffeine content compared to other teas. The caffeine content in black tea is still around half the level of coffee. Often black teas can be consumed with sugar, milk, or lemon and offer some of the same health benefits as other teas.",
+            "link_text": "Click here to browse our selection of black teas",
+            "link_url": "/collections/black-tea",
+            "bg_color_1": "#fafcfb",
+            "bg_color_2": "#ebf6f5",
+            "text_color": "#222222"
+          }
+        },
+        "green": {
+          "type": "variety",
+          "settings": {
+            "title": "Green Tea",
+            "image": "shopify://shop_images/vecteezy_assorted-herbal-tea-ingredients-in-glass-bowls_43533816-scaled.jpg",
+            "description": "Green tea is unoxidized and maintains its fresh green color and high level of catechins (antioxidants). It has a fresh, grassy or vegetative flavor and contains lower caffeine content than black tea.",
+            "link_text": "Click here to browse our selection of green teas",
+            "link_url": "shopify://products/heart-health-herbal-tea-natural-cardiovascular-support",
+            "bg_color_1": "#fafdf9",
+            "bg_color_2": "#eef6eb",
+            "text_color": "#222222"
+          }
+        },
+        "oolong": {
+          "type": "variety",
+          "settings": {
+            "title": "Oolong Tea",
+            "description": "Oolong tea is partially oxidized, falling between green and black teas. It has a complex, floral or woody aroma and flavor profile that can vary widely depending on the level of oxidation.",
+            "link_text": "Click here to browse our selection of oolong teas",
+            "link_url": "/collections/oolong-tea",
+            "bg_color_1": "#fbfcfa",
+            "bg_color_2": "#f2f7ec",
+            "text_color": "#222222"
+          }
+        },
+        "white": {
+          "type": "variety",
+          "settings": {
+            "title": "White Tea",
+            "description": "White tea is the least processed of all teas, made from young buds and leaves withered in natural sunlight. It features a delicate, slightly sweet, and clean flavor profile.",
+            "link_text": "Click here to browse our selection of white teas",
+            "link_url": "/collections/white-tea",
+            "bg_color_1": "#fafafa",
+            "bg_color_2": "#f0f2ef",
+            "text_color": "#222222"
+          }
+        },
+        "puerh": {
+          "type": "variety",
+          "settings": {
+            "title": "Pu-erh Tea",
+            "description": "Pu-erh tea is fermented and aged, producing a rich, earthy flavor profile that mellows and improves over time. It is highly valued for digestive health and everyday comfort.",
+            "link_text": "Click here to browse our selection of pu-erh teas",
+            "link_url": "/collections/pu-erh",
+            "bg_color_1": "#fcfaf8",
+            "bg_color_2": "#f6ebd8",
+            "text_color": "#222222"
+          }
+        }
+      },
+      "block_order": [
+        "black",
+        "green",
+        "oolong",
+        "white",
+        "puerh"
+      ],
+      "settings": {
+        "heading": "Basic varieties",
+        "description": "<p>All tea comes from only one plant called <em>Camellia sinensis</em>. However, based on the type of tea leaves picked and the level of oxidation or processing, tea is classified into five main types: Black, Green, Oolong, White, and Pu-erh.</p>",
+        "accent_color": "#171919"
+      }
+    },
+    "benefits_tea": {
+      "type": "benefits-tea",
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "position": "left",
+            "title": "Natural Benefits",
+            "desc": "Rich in antioxidants, vitamins, and minerals that support daily vitality and immune health."
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "position": "left",
+            "title": "Premium Quality",
+            "desc": "Sourced from pristine regions and dried slowly to preserve essential oils and properties."
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "position": "right",
+            "title": "100% Natural Claims",
+            "desc": "Pure herbal infusions free from artificial colors, synthetic flavors, and chemical additives."
+          }
+        },
+        "benefit_4": {
+          "type": "benefit",
+          "settings": {
+            "position": "right",
+            "title": "Caffeine-Free",
+            "desc": "Applicable blends are naturally caffeine-free, offering a soothing ritual at any time of day."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_1",
+        "benefit_2",
+        "benefit_3",
+        "benefit_4"
+      ],
+      "settings": {
+        "heading": "Active Botanicals & Sourcing",
+        "subtext": "Every ingredient is selected for its purity and proven wellness benefits. 100% natural and ethically sourced.",
+        "center_img": "shopify://shop_images/videoframe_26487.png"
+      }
+    },
+    "promise": {
+      "type": "sage-promise-section",
+      "blocks": {
+        "promise_1": {
+          "type": "promise",
+          "settings": {
+            "title": "Ethically Sourced",
+            "text": "Partnering with local farmers using regenerative agricultural practices."
+          }
+        },
+        "promise_2": {
+          "type": "promise",
+          "settings": {
+            "title": "Radical Transparency",
+            "text": "Full disclosure of ingredients and sourcing from seed to teacup."
+          }
+        },
+        "promise_3": {
+          "type": "promise",
+          "settings": {
+            "title": "Pure & Clean",
+            "text": "Tested rigorously for contaminants, heavy metals, and pesticides."
+          }
+        },
+        "promise_4": {
+          "type": "promise",
+          "settings": {
+            "title": "Zero Waste Packaging",
+            "text": "Biodegradable pyramid tea bags and recyclable boxes."
+          }
+        }
+      },
+      "block_order": [
+        "promise_1",
+        "promise_2",
+        "promise_3",
+        "promise_4"
+      ],
+      "settings": {
+        "bg_color": "#eef1ea",
+        "heading": "The Sage & Soul Promise",
+        "content": "<p>When you choose Sage & Soul, you choose radical transparency, clean ingredients, and sustainable practices.</p>",
+        "image": "shopify://shop_images/videoframe_26487.png"
+      }
+    },
+    "health_benefits_list_MHdWpt": {
+      "type": "health-benefits-list",
+      "blocks": {
+        "benefit_3rAYkE": {
+          "type": "benefit",
+          "settings": {
+            "title": "Heart Diseases",
+            "content": "<p>Tea may protect against cardiovascular diseases and reduce risk of heart attack. Cardiologists at the University of Maryland Medical Centre have come to the conclusion that antioxidants contained in tea may help reduce a potentially harmful constriction of blood vessels after a high–fat meal. However it is suggested that in order to keep the antioxidants working, one should skip the milk. The proteins of the milk bind with the antioxidants negating its effects.</p>"
+          }
+        },
+        "benefit_JE9mci": {
+          "type": "benefit",
+          "settings": {
+            "title": "Weight Loss",
+            "content": "<p>The weight loss properties of tea are attributed to the presence of caffeine, a natural stimulant and catechins called epigallocatechin gallate or EGCG in them which combat fat absorption and speed up the body's metabolism. The calorie burning properties of green tea have been very widely covered and talked about in the media. But the fact is that just as other health benefits of tea, even weight loss can be achieved from all teas rather than just green or white as they all come from the same tea plant Camellia sinensis. Of course, the level of antioxidants varies from one tea to another and since green and white teas have more of them compared to other teas, they are the ones that get featured most as teas that aid weight loss.</p>"
+          }
+        },
+        "benefit_LK448Q": {
+          "type": "benefit",
+          "settings": {
+            "title": "Exercise Endurance",
+            "content": "<p>Glucose is our body's primary source of energy. While exercising, glycogen that is stored in the liver and the muscles is broken down to produce glucose to meet the demands of the body. Marathon runners and others who exercise a lot often experience what is known as 'glycogen debt' where the athletes' glycogen stores are depleted due to all the physical exercise, therefore little or no more glucose can be produced to provide instant energy and at this point, the athlete tires out and usually has to stop. Scientists found that catechins in tea, especially green and white tea and moderate caffeine levels in tea slows glycogen depletion by encouraging the body to use more fat as fuel, helping conserve stored glycogen energy for the long run (or ride, swim or jog).</p>"
+          }
+        },
+        "benefit_M33Wjz": {
+          "type": "benefit",
+          "settings": {
+            "title": "Free Radicals",
+            "content": "<p>Modern life is full of excesses of pollution, sun and stress. This leads in a rise of free radicals, a natural intermediate of the chemical processes in our body. Free radicals have been linked to diseases such as heart disease, stroke and cancer. And who should come to the rescue but our very own ...Tea. It is thought that regular consumption of food and drinks that are rich in free radical combating antioxidants can reduce the risks of the harm caused by free radicals. And tea is rich in a particular group of antioxidants known as Flavonoids (8 times the amount of super antioxidant power in 3 of your cuppas than in one apple. And tea we can have plenty!!!)</p>"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_3rAYkE",
+        "benefit_JE9mci",
+        "benefit_LK448Q",
+        "benefit_M33Wjz"
+      ],
+      "name": "Health Benefits List",
+      "settings": {
+        "intro": "",
+        "accent_color": "#00a4a6",
+        "bg_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "webpage_crousal_iCdbAm",
+    "varieties",
+    "benefits_tea",
+    "promise",
+    "health_benefits_list_MHdWpt"
+  ]
+}

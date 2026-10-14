@@ -1,0 +1,311 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_collection_grid": {
+      "type": "custom-collection-grid",
+      "blocks": {
+        "collection_card_bhrLrt": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "custom_url": "shopify://products/skin-glow-herbal-wellness-infusion",
+            "custom_image": "shopify://shop_images/Frame_109.png",
+            "title": "Skin Glow | Herbal Wellness Infusion | 30 Premium Pyramid Tea Bags",
+            "subtitle": "",
+            "badge": "Skin Radiance",
+            "button_label": ""
+          }
+        },
+        "collection_card_9jQek6": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "custom_url": "shopify://products/skin-glow-herbal-wellness-infusion",
+            "custom_image": "shopify://shop_images/image_9.webp",
+            "title": "Happy Liver & Body Cleanse | Herbal Wellness Infusion | 30 Premium Pyramid Tea Bags",
+            "subtitle": "",
+            "badge": "Full Body Wellness",
+            "button_label": ""
+          }
+        },
+        "collection_card_XGDpDh": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "custom_url": "shopify://products/lady-bloom-women-s-herbal-wellness-infusion",
+            "custom_image": "shopify://shop_images/lady_bloom_a_conetnt_1.png",
+            "title": "Lady Bloom | Women’s Herbal Wellness Infusion | 30 Premium Pyramid Tea Bags",
+            "subtitle": "",
+            "badge": "Women’s Wellness",
+            "button_label": ""
+          }
+        },
+        "collection_card_1": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "custom_url": "shopify://products/happy-heart-ayurvedic-herbal-infusion",
+            "custom_image": "shopify://shop_images/happy_heart_16_1.webp",
+            "title": "Happy Heart | Circulatory Herbal Wellness Infusion | 32 Premium Pyramid Tea Bags",
+            "subtitle": "",
+            "badge": "Circulatory Wellness",
+            "button_label": ""
+          }
+        },
+        "collection_card_b6fmmd": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "custom_url": "shopify://products/happy-heart-gluco-balance-daily-wellness-combo",
+            "custom_image": "shopify://shop_images/gluco_balance_12_1_1.webp",
+            "title": "Gluco Balance | Herbal Wellness Infusion | 32 Premium Pyramid Tea Bags",
+            "subtitle": "",
+            "badge": "Blood Sugar Support",
+            "button_label": ""
+          }
+        },
+        "collection_card_ArXqKB": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "custom_url": "shopify://products/happy-heart-ayurvedic-herbal-infusion",
+            "custom_image": "shopify://shop_images/slim_tea_16_1.webp",
+            "title": "Daily Slim & Active | Herbal Wellness Infusion | 30 Premium Pyramid Tea Bags",
+            "subtitle": "",
+            "badge": "Fitness & Wellness Tea",
+            "button_label": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_card_bhrLrt",
+        "collection_card_9jQek6",
+        "collection_card_XGDpDh",
+        "collection_card_1",
+        "collection_card_b6fmmd",
+        "collection_card_ArXqKB"
+      ],
+      "settings": {
+        "heading": "Explore Our Collections",
+        "subheading": "Handcrafted herbal infusions and premium wellness teas designed to nourish your mind, body, and soul.",
+        "header_alignment": "center",
+        "title_font_size": 32,
+        "title_font_weight": "400",
+        "title_transform": "none",
+        "title_letter_spacing": 0.5,
+        "subtitle_font_size": 15,
+        "header_spacing": 35,
+        "columns_desktop": 3,
+        "columns_mobile": "1",
+        "enable_mobile_slider": true,
+        "gap_desktop": 24,
+        "gap_mobile": 14,
+        "card_style": "standard",
+        "image_aspect_ratio": "1/1",
+        "card_text_alignment": "center",
+        "card_border_radius": 12,
+        "card_border_width": 1,
+        "enable_shadow": true,
+        "enable_hover_lift": true,
+        "show_product_count": false,
+        "show_button": true,
+        "default_btn_text": "Explore",
+        "btn_transform": "uppercase",
+        "card_title_size": 16,
+        "card_title_weight": "500",
+        "bg_color": "#fdfbf9",
+        "title_color": "#111111",
+        "subtitle_color": "#555555",
+        "card_bg_color": "#ffffff",
+        "card_border_color": "#ffffff",
+        "card_hover_border_color": "#ffffff",
+        "card_title_color": "#1a1a1a",
+        "card_title_hover_color": "#000000",
+        "card_subtext_color": "#777777",
+        "btn_color": "#111111",
+        "btn_hover_color": "#000000",
+        "badge_bg_color": "#111111",
+        "badge_text_color": "#ffffff",
+        "max_width": 1360,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
+      }
+    },
+    "collection_list_Wfgh3m": {
+      "type": "main-collection-list",
+      "blocks": {
+        "group_4FtiAg": {
+          "type": "group",
+          "name": "t:names.header",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 48,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_fRMQMR": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<h1>Collections</h1>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h2",
+                "font": "var(--font-primary--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 16,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_fRMQMR"
+          ]
+        },
+        "static-collection-card": {
+          "type": "_collection-card",
+          "name": "t:names.collection_card",
+          "static": true,
+          "settings": {
+            "placement": "below_image",
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "flex-start",
+            "collection_card_gap": 8,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-58084d4c-a86e-4d0a-855e-a0966e5043f7",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 8
+          },
+          "blocks": {
+            "collection_title_7YgBPU": {
+              "type": "collection-title",
+              "name": "t:names.collection_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#000000",
+                "corner_radius": 5,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "collection-card-image": {
+              "type": "_collection-card-image",
+              "name": "t:names.collection_card_image",
+              "static": true,
+              "settings": {
+                "image_ratio": "adapt",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "collection_title_7YgBPU"
+          ]
+        }
+      },
+      "block_order": [
+        "group_4FtiAg"
+      ],
+      "disabled": true,
+      "name": "Collection list",
+      "settings": {
+        "layout_type": "grid",
+        "carousel_on_mobile": true,
+        "columns": 3,
+        "mobile_columns": "2",
+        "columns_gap": 12,
+        "bento_gap": 8,
+        "rows_gap": 24,
+        "max_collections": 4,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "gap": 12,
+        "color_scheme": "",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    }
+  },
+  "order": [
+    "custom_collection_grid",
+    "collection_list_Wfgh3m"
+  ]
+}

@@ -1,0 +1,230 @@
+{%- if predictive_search.performed or search.performed -%}
+  <div
+    id="predictive-search-results"
+    class="predictive-search-dropdown"
+    role="listbox"
+    aria-label="{{ 'content.search_results_label' | t }}"
+    data-transition-container
+    style="--color-shadow: rgb(var(--color-foreground-rgb) / var(--opacity-10-25));"
+  >
+    <div
+      class="predictive-search-results__inner"
+      data-search-results
+    >
+      {% if predictive_search.performed %}
+        {% assign search_results_count = predictive_search.resources.products.size
+          | plus: predictive_search.resources.pages.size
+          | plus: predictive_search.resources.articles.size
+          | plus: predictive_search.resources.collections.size
+        %}
+      {% else %}
+        {% assign search_results_count = search.results_count %}
+      {% endif %}
+
+      <div
+        class="visually-hidden"
+        role="status"
+      >
+        {%- if predictive_search.performed and search_results_count > 0 -%}
+          {{ 'accessibility.search_results_count' | t: count: search_results_count, query: predictive_search.terms }}
+        {%- elsif predictive_search.performed and predictive_search.resources.queries.size > 0 -%}
+          {{- 'accessibility.search_suggestions_available' | t: query: predictive_search.terms -}}
+        {%- elsif predictive_search.performed -%}
+          {{ 'accessibility.search_results_no_results' | t: query: predictive_search.terms }}
+        {%- endif -%}
+      </div>
+
+      <div class="search-two-column-layout">
+        <!-- Left Column: Suggestions & Trending Keywords -->
+        <div class="search-keywords-column">
+          {% if predictive_search.performed and predictive_search.resources.queries.size > 0 %}
+            <div class="search-column-heading">
+              <span class="search-column-heading__icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </span>
+              <span>SUGGESTIONS</span>
+            </div>
+
+            <ul class="search-keywords-list list-unstyled predictive-search-results__wrapper-queries" style="margin-bottom: 20px;">
+              {%- for resource in predictive_search.resources.queries -%}
+                <li
+                  class="predictive-search-results__card--query"
+                  ref="resultsItems[]"
+                  on:keydown="/onSearchKeyDown"
+                >
+                  <a
+                    class="search-keyword-pill"
+                    href="{{ resource.url }}"
+                    aria-label="{{ resource.text }}"
+                  >
+                    <span class="search-keyword-pill__icon">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                        <polyline points="17 6 23 6 23 12"></polyline>
+                      </svg>
+                    </span>
+                    <span class="search-keyword-pill__text">
+                      {{ resource.styled_text }}
+                    </span>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          <div class="search-column-heading">
+            <span class="search-column-heading__icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
+              </svg>
+            </span>
+            <span>TRENDING KEYWORDS</span>
+          </div>
+
+          <div class="search-keywords-list">
+            {% assign keywords = "Improve sleep quality,Bone & joint health,Boost metabolism,Reduce body fat,Daily slim & active,Herbal wellness combos,Gluco balance & sugar health,Chamomile sleep tea" | split: "," %}
+            {% for kw in keywords %}
+              <button type="button" class="search-keyword-pill" data-search-keyword="{{ kw }}">
+                <span class="search-keyword-pill__icon">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                    <polyline points="17 6 23 6 23 12"></polyline>
+                  </svg>
+                </span>
+                <span class="search-keyword-pill__text">{{ kw }}</span>
+              </button>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- Right Column: Products / Results -->
+        <div class="search-products-column">
+          {% if predictive_search.performed %}
+            {% if predictive_search.resources.products.size > 0 %}
+              <div class="search-column-heading">
+                <span class="search-column-heading__icon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                  </svg>
+                </span>
+                <span>PRODUCTS ({{ predictive_search.resources.products.size }})</span>
+              </div>
+
+              {%- liquid
+                assign title = 'content.search_results_resource_products' | t
+                assign products = predictive_search.resources.products
+                render 'predictive-search-products-list', title: title, products: products, limit: 6
+              -%}
+            {% elsif search_results_count == 0 and predictive_search.resources.queries.size == 0 %}
+              <div class="search-column-heading">
+                <span class="search-column-heading__icon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                  </svg>
+                </span>
+                <span>NO RESULTS FOUND</span>
+              </div>
+              <p class="search-empty-prompt" style="color: #64748b; font-size: 13.5px; margin-bottom: 16px;">
+                {{ 'content.search_results_no_results' | t: terms: predictive_search.terms }}. Try exploring our popular products or click a trending keyword.
+              </p>
+              {% liquid
+                assign fallback_collection = settings.empty_state_collection | default: collections.all
+                assign fallback_products = fallback_collection.products
+              %}
+              {% if fallback_products.size > 0 %}
+                {% render 'predictive-search-products-list', title: 'Trending Products', products: fallback_products, limit: 4 %}
+              {% endif %}
+            {% endif %}
+
+            {% if predictive_search.resources.collections.size > 0 %}
+              {% assign resource_title = 'content.search_results_resource_collections' | t %}
+              <div style="margin-top: 16px;">
+                {% render 'predictive-search-resource-carousel',
+                  title: resource_title,
+                  resource_type: 'collection',
+                  resources: predictive_search.resources.collections
+                %}
+              </div>
+            {% endif %}
+
+            {% if predictive_search.resources.pages.size > 0 %}
+              {% assign resource_title = 'content.search_results_resource_pages' | t %}
+              <div style="margin-top: 16px;">
+                {% render 'predictive-search-resource-carousel',
+                  title: resource_title,
+                  resource_type: 'page',
+                  resources: predictive_search.resources.pages
+                %}
+              </div>
+            {% endif %}
+
+            {% if predictive_search.resources.articles.size > 0 %}
+              {% assign resource_title = 'content.search_results_resource_articles' | t %}
+              <div style="margin-top: 16px;">
+                {% render 'predictive-search-resource-carousel',
+                  title: resource_title,
+                  resource_type: 'article',
+                  resources: predictive_search.resources.articles
+                %}
+              </div>
+            {% endif %}
+          {% else %}
+            {%- liquid
+              assign title = 'content.recently_viewed_products' | t
+              assign products = search.results
+              if search.terms contains 'id:'
+                assign new_products_ids = search.terms | replace: 'id:', '' | split: ' OR '
+              endif
+              render 'predictive-search-products-list', title: title, products: products, order_ids: new_products_ids, limit: 5
+            -%}
+          {% endif %}
+        </div>
+      </div>
+
+      {% if predictive_search.performed %}
+        {%- if search_results_count > 0 -%}
+          {% assign total_results = predictive_search.resources.products.size
+            | plus: predictive_search.resources.collections.size
+            | plus: predictive_search.resources.pages.size
+            | plus: predictive_search.resources.articles.size
+          %}
+          {% assign single_result_url = null %}
+          {% if total_results == 1 %}
+            {% if predictive_search.resources.products.size == 1 %}
+              {% assign single_result_url = predictive_search.resources.products.first.url %}
+            {% elsif predictive_search.resources.collections.size == 1 %}
+              {% assign single_result_url = predictive_search.resources.collections.first.url %}
+            {% elsif predictive_search.resources.pages.size == 1 %}
+              {% assign single_result_url = predictive_search.resources.pages.first.url %}
+            {% elsif predictive_search.resources.articles.size == 1 %}
+              {% assign single_result_url = predictive_search.resources.articles.first.url %}
+            {% endif %}
+          {% endif %}
+
+          {% if single_result_url %}
+            <div data-single-result-url="{{ single_result_url }}"></div>
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:names.predictive_search",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "@theme"
+    }
+  ]
+}
+{% endschema %}
