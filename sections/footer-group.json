@@ -167,8 +167,10 @@
         "instagram_link": "https://www.instagram.com/mysagensoul/",
         "twitter_svg": "shopify://shop_images/x.png",
         "twitter_link": "https://x.com/SageNSoul",
-        "linkedin_svg": "shopify://shop_images/whatsap.png",
-        "linkedin_link": "https://wa.me/917717576797?text=Hi%20there%2C%20I%20would%20like%20to%20connect"
+        "linkedin_svg": "",
+        "linkedin_link": "",
+        "whatsapp_svg": "shopify://shop_images/whatsap.png",
+        "whatsapp_link": "https://wa.me/917717576797?text=Hi%20there%2C%20I%20would%20like%20to%20connect"
       }
     },
     "marqueenote_7kVBXf": {

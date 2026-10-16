@@ -79,28 +79,61 @@
         <!-- Social Icons -->
         <div class="social-custom">
           {% if section.settings.facebook_svg != blank and section.settings.facebook_link != blank %}
-            <a href="{{ section.settings.facebook_link }}" target="_blank">
+            <a href="{{ section.settings.facebook_link }}" target="_blank" aria-label="Facebook">
               <img src="{{ section.settings.facebook_svg | image_url }}" alt="Facebook">
             </a>
           {% endif %}
 
           {% if section.settings.instagram_svg != blank and section.settings.instagram_link != blank %}
-            <a href="{{ section.settings.instagram_link }}" target="_blank">
+            <a href="{{ section.settings.instagram_link }}" target="_blank" aria-label="Instagram">
               <img src="{{ section.settings.instagram_svg | image_url }}" alt="Instagram">
             </a>
           {% endif %}
 
           {% if section.settings.twitter_svg != blank and section.settings.twitter_link != blank %}
-            <a href="{{ section.settings.twitter_link }}" target="_blank">
+            <a href="{{ section.settings.twitter_link }}" target="_blank" aria-label="Twitter">
               <img src="{{ section.settings.twitter_svg | image_url }}" alt="Twitter">
             </a>
           {% endif %}
 
           {% if section.settings.linkedin_svg != blank and section.settings.linkedin_link != blank %}
-            <a href="{{ section.settings.linkedin_link }}" target="_blank">
+            <a href="{{ section.settings.linkedin_link }}" target="_blank" aria-label="LinkedIn">
               <img src="{{ section.settings.linkedin_svg | image_url }}" alt="LinkedIn">
             </a>
           {% endif %}
+
+          {% if section.settings.whatsapp_svg != blank and section.settings.whatsapp_link != blank %}
+            <a href="{{ section.settings.whatsapp_link }}" target="_blank" aria-label="WhatsApp">
+              <img src="{{ section.settings.whatsapp_svg | image_url }}" alt="WhatsApp">
+            </a>
+          {% endif %}
+
+          {% if section.settings.youtube_svg != blank and section.settings.youtube_link != blank %}
+            <a href="{{ section.settings.youtube_link }}" target="_blank" aria-label="YouTube">
+              <img src="{{ section.settings.youtube_svg | image_url }}" alt="YouTube">
+            </a>
+          {% endif %}
+
+          {% if section.settings.pinterest_svg != blank and section.settings.pinterest_link != blank %}
+            <a href="{{ section.settings.pinterest_link }}" target="_blank" aria-label="Pinterest">
+              <img src="{{ section.settings.pinterest_svg | image_url }}" alt="Pinterest">
+            </a>
+          {% endif %}
+
+          {% if section.settings.threads_svg != blank and section.settings.threads_link != blank %}
+            <a href="{{ section.settings.threads_link }}" target="_blank" aria-label="Threads">
+              <img src="{{ section.settings.threads_svg | image_url }}" alt="Threads">
+            </a>
+          {% endif %}
+
+          {% comment %} Dynamic Custom Social Blocks {% endcomment %}
+          {% for block in section.blocks %}
+            {% if block.type == 'social_icon' and block.settings.icon != blank and block.settings.link != blank %}
+              <a href="{{ block.settings.link }}" target="_blank" aria-label="{{ block.settings.title | default: 'Social' }}" {{ block.shopify_attributes }}>
+                <img src="{{ block.settings.icon | image_url }}" alt="{{ block.settings.title | default: 'Social' }}">
+              </a>
+            {% endif %}
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -288,6 +321,7 @@ Sage & Soul is a brand of The One Earth Enterprises.</p>
 
   .social-custom {
     display: flex;
+    flex-wrap: wrap;
     gap: 14px;
   }
 
@@ -384,7 +418,19 @@ Sage & Soul is a brand of The One Earth Enterprises.</p>
     { "type": "url", "id": "twitter_link", "label": "Twitter Link" },
 
     { "type": "image_picker", "id": "linkedin_svg", "label": "LinkedIn SVG Icon" },
-    { "type": "url", "id": "linkedin_link", "label": "LinkedIn Link" }
+    { "type": "url", "id": "linkedin_link", "label": "LinkedIn Link" },
+
+    { "type": "image_picker", "id": "whatsapp_svg", "label": "WhatsApp SVG Icon" },
+    { "type": "url", "id": "whatsapp_link", "label": "WhatsApp Link" },
+
+    { "type": "image_picker", "id": "youtube_svg", "label": "YouTube SVG Icon" },
+    { "type": "url", "id": "youtube_link", "label": "YouTube Link" },
+
+    { "type": "image_picker", "id": "pinterest_svg", "label": "Pinterest SVG Icon" },
+    { "type": "url", "id": "pinterest_link", "label": "Pinterest Link" },
+
+    { "type": "image_picker", "id": "threads_svg", "label": "Threads SVG Icon" },
+    { "type": "url", "id": "threads_link", "label": "Threads Link" }
   ],
   "blocks": [
     {
@@ -392,6 +438,15 @@ Sage & Soul is a brand of The One Earth Enterprises.</p>
       "name": "Payment Icon",
       "settings": [
         { "type": "image_picker", "id": "icon", "label": "Upload Payment Icon (PNG/SVG)" }
+      ]
+    },
+    {
+      "type": "social_icon",
+      "name": "+ Custom Social Icon",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Platform Name (e.g. YouTube, Spotify)", "default": "Social" },
+        { "type": "image_picker", "id": "icon", "label": "Upload Icon (SVG/PNG)" },
+        { "type": "url", "id": "link", "label": "Social Link" }
       ]
     }
   ],
