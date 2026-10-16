@@ -73,7 +73,7 @@
         {% endif %}
 
         {% if section.settings.email != blank %}
-          <p><strong>Email:</strong> <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></p>
+          <p class="footer-email"><a href="mailto:{{ section.settings.email }}"><strong>Email:</strong> {{ section.settings.email }}</a></p>
         {% endif %}
 
         <!-- Social Icons -->
@@ -251,8 +251,26 @@ Sage & Soul is a brand of The One Earth Enterprises.</p>
   .footer-column a { 
     color: #ddd; 
     text-decoration: none; 
+    transition: color 0.2s ease;
   }
-  .footer-column a:hover { color: #8bc34a; }
+  .footer-column a:hover { 
+    color: #8bc34a !important; 
+  }
+
+  .footer-email a {
+    color: #dddddd !important;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .footer-email a strong {
+    color: #ffffff !important;
+    font-weight: 700;
+    transition: color 0.2s ease;
+  }
+  .footer-email a:hover,
+  .footer-email a:hover strong {
+    color: #8bc34a !important;
+  }
 
   .payments-single {
     display: flex;
